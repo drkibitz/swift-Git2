@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+#  build
+#  swift-Git2
+#
+#  Created by Dr. Kibitz on 3/13/16.
+#  Copyright © 2016 Dr. Kibitz <info@drkibitz.com>, Inc. All rights reserved.
+#
+
+export PATH="/Users/jimi/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH"
+
+case "$1" in
+	debug)
+		echo "Attempting to build for debug..."
+		if swift build -c debug -Xlinker -L/usr/local/lib; then
+			echo "Release build successful, running..."
+			echo ""
+			./.build/debug/swift-git
+			echo ""
+			echo "Process exited with code: $?"
+		fi
+		;;
+	release)
+		echo "Attempting to build for release..."
+		if swift build -c release -Xlinker -L/usr/local/lib; then
+			echo "Debug build successful, running..."
+			echo ""
+			./.build/release/swift-git
+			echo ""
+			echo "Process exited with code: $?"
+		fi
+		;;
+	clean)
+		echo "Cleaning up everything..."
+		swift build --clean
+		rm -fR Packages/
+		;;
+	*)
+		echo $"Usage: $0 {debug|release|clean}"
+		exit 1
+esac
