@@ -1,0 +1,12 @@
+{
+  "autoPin": true,
+  "pins": [
+    {
+      "package": "CGit2",
+      "reason": null,
+      "repositoryURL": "https://github.com/drkibitz/swift-CGit2.git",
+      "version": "0.2.0"
+    }
+  ],
+  "version": 1
+}

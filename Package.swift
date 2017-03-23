@@ -1,3 +1,4 @@
+// swift-tools-version:3.1
 //
 //  Package.swift
 //  swift-Git2
@@ -11,10 +12,6 @@ import PackageDescription
 let package = Package(
 	name: "Git2",
 
-	dependencies: [
-		.Package(url: "https://github.com/drkibitz/swift-CGit2.git", majorVersion: 0)
-	],
-
 	targets: [
 		Target(
 			name: "swift-git",
@@ -23,5 +20,9 @@ let package = Package(
 		Target(
 			name: "Git2"
 		)
+	],
+
+	dependencies: [
+		.Package(url: "https://github.com/drkibitz/swift-CGit2.git", majorVersion: 0)
 	]
 )

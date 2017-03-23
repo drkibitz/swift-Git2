@@ -32,7 +32,8 @@ case "$1" in
 		;;
 	clean)
 		echo "Cleaning up everything..."
-		swift build --clean
+		swift package reset
+		swift package clean
 		rm -fR Packages/
 		;;
 	*)
